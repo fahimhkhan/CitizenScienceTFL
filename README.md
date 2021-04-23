@@ -1,5 +1,4 @@
 # CitizenScienceTFL
-Training Tensorflow Lite models for ML powered Citizen Science mobile apps
 
 The steps Needed to train and use a Tensorflow Lite Object detection model are as below
 
