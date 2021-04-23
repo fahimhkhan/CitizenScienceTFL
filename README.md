@@ -12,10 +12,11 @@ Datasets are labeled using a tool called labelImg https://github.com/tzutalin/la
 
 Install Tensorflow 1.15 using this command:
 
-pip install tensorflow==1.15
+```pip install tensorflow==1.15```
 
 Install these dependencies:
 
+```
 pip install Cython 
 pip install contextlib2
 pip install pillow 
@@ -24,21 +25,22 @@ pip install jupyter
 pip install matplotlib 
 pip install tf_slim 
 pip install pycocotools
+```
 
 Install Protobuf:
 https://grpc.io/docs/protoc-installation/
 
 Clone the object detection models repository
-git clone https://github.com/tensorflow/models.git
+```git clone https://github.com/tensorflow/models.git```
 
 Compile Protobuf
-protoc object_detection/protos/*.proto --python_out=.
+```protoc object_detection/protos/*.proto --python_out=.```
 
 Update PYTHONPATH variable:
-export PYTHONPATH=$PYTHONPATH:"/research":"/research/slim"
+```export PYTHONPATH=$PYTHONPATH:"/research":"/research/slim"```
 
 Test the installation of object detection API by runnning the command below from models/researchfolder
-python3 object_detection/builders/model_builder_tf1_test.py
+```python object_detection/builders/model_builder_tf1_test.py```
 
 **3. Generating TFRecord**
 Generating TFRecord
