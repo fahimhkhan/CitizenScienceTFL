@@ -47,7 +47,8 @@ Test the installation of object detection API by runnning the command below from
 ```python object_detection/builders/model_builder_tf1_test.py```
 
 **3. Generating TFRecord**
-Generating TFRecord
+
+Generat the TFRecord files
 
 **4. Selecting a Pre-trained model**
 
