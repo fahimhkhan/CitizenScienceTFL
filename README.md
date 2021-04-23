@@ -31,15 +31,19 @@ Install Protobuf:
 https://grpc.io/docs/protoc-installation/
 
 Clone the object detection models repository
+
 ```git clone https://github.com/tensorflow/models.git```
 
 Compile Protobuf
+
 ```protoc object_detection/protos/*.proto --python_out=.```
 
 Update PYTHONPATH variable:
+
 ```export PYTHONPATH=$PYTHONPATH:"/research":"/research/slim"```
 
 Test the installation of object detection API by runnning the command below from models/researchfolder
+
 ```python object_detection/builders/model_builder_tf1_test.py```
 
 **3. Generating TFRecord**
