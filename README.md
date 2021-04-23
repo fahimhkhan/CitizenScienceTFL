@@ -41,8 +41,18 @@ Test the installation of object detection API by runnning the command below from
 python3 object_detection/builders/model_builder_tf1_test.py
 
 3. Generating TFRecord
-4. Selecting a Pre-trained model
-5. Training the model
-6. Converting the model to .tflite
-7. Including the .tflite file to the Android/iOS app development project.
-8. Building and running the Android/iOS app.
+**4. Selecting a Pre-trained model**
+
+We used a pretrained model as our initial checkpoint ssd mobilenet v2. It can be downloaded from https://github.com/practical-learning/object-detection-on-android/releases/download/v1.0/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+
+Extract the .tar.gz file to a folder named pretrained_model.
+
+**5. Training the model**
+Train the model using the pretrained model as our initial checkpoint.
+
+**6. Converting the model to .tflite**
+Convert the TensorFlow model and generates a TensorFlow Lite model using the instruction from the link below
+https://www.tensorflow.org/lite/convert
+
+**7. Building and running the Android/iOS app with the .tflite.**
+Include the .tflite file to your Android/iOS app development project in Android Studio or Xcode, then build and run the app.
