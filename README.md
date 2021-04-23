@@ -40,7 +40,9 @@ export PYTHONPATH=$PYTHONPATH:"/research":"/research/slim"
 Test the installation of object detection API by runnning the command below from models/researchfolder
 python3 object_detection/builders/model_builder_tf1_test.py
 
-3. Generating TFRecord
+**3. Generating TFRecord**
+Generating TFRecord
+
 **4. Selecting a Pre-trained model**
 
 We used a pretrained model as our initial checkpoint ssd mobilenet v2. It can be downloaded from https://github.com/practical-learning/object-detection-on-android/releases/download/v1.0/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
