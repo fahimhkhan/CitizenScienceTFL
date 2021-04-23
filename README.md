@@ -1,6 +1,6 @@
 # CitizenScienceTFL
 
-The steps Needed to train and use a Tensorflow Lite Object detection model are as below
+The steps Needed to train and use a Tensorflow Lite rip current detection model are as below.
 
 **1. Dataset creation and annotation**
 
