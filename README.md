@@ -50,11 +50,14 @@ We used a pretrained model as our initial checkpoint ssd mobilenet v2. It can be
 Extract the .tar.gz file to a folder named pretrained_model.
 
 **5. Training the model**
+
 Train the model using the pretrained model as our initial checkpoint.
 
 **6. Converting the model to .tflite**
+
 Convert the TensorFlow model and generates a TensorFlow Lite model using the instruction from the link below
 https://www.tensorflow.org/lite/convert
 
 **7. Building and running the Android/iOS app with the .tflite.**
+
 Include the .tflite file to your Android/iOS app development project in Android Studio or Xcode, then build and run the app.
