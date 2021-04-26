@@ -55,7 +55,7 @@ First, run "the xml_to_csv_test.py" and "xml_to_csv_train.py" files in the datas
 
 **4. Selecting a Pre-trained model**
 
-We used a pretrained model as our initial checkpoint ssd mobilenet v2. It can be downloaded from https://github.com/practical-learning/object-detection-on-android/releases/download/v1.0/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+We used a pretrained model as our initial checkpoint ssd mobilenet v2. It can be downloaded from http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 
 Extract the .tar.gz file to the folder named "pretrained_model".
 
