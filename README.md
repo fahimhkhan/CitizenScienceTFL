@@ -65,7 +65,9 @@ Copy and replace with the given "pipeline.config" in "pretrained_model" to the e
 
 Train the model using the pretrained model as our initial checkpoint. Use the trained_model directory as the training folder. Run the following script inside "models/research/object_detection/legacy/" directory.
 
-```python train.py --logtostderr --train_dir=<path to "trained_model"> --pipeline_config_path=<path to pipeline.config file>```
+```
+python train.py --logtostderr --train_dir=<path to "trained_model"> --pipeline_config_path=<path to pipeline.config file>
+```
 
 Run the training until converge and then run the checkpoint for the next step.
 
