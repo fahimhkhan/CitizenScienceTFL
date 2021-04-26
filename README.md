@@ -4,7 +4,7 @@ The steps Needed to train and use a Tensorflow Lite rip current detection model 
 
 **1. Dataset creation and annotation**
 
-The annotated dataset for rip current detection is given in this repo. There is two folders, "train" and "test", respectively.
+Link to the annotated dataset for rip current detection is given in this repo. There is two folders, "train" and "test", respectively.
 Datasets are labeled using a tool called labelImg https://github.com/tzutalin/labelImg
 
 **2. Setting up Tensorflow and Dependencies**
@@ -47,7 +47,11 @@ Test the installation of object detection API by runnning the command below from
 
 **3. Generating TFRecord**
 
-Generat the TFRecord files
+First, run "the xml_to_csv_test.py" and "xml_to_csv_train.py" files in the dataset directory to generate "test.csv" and "train.csv" respectively. Then, generate the TFRecord files by running the following python script inside the dataset directory,
+
+```python generate_tfrecord.py --csv_input=<path of train.csv file> --output_path=<path of the output directory>/train.record --image_dir=<path to the train images folder>```
+and
+```python3 generate_tfrecord.py --csv_input=<path of test.csv file> --output_path=<path of the output directory>/test.record --image_dir=<path to the test images folder>```
 
 **4. Selecting a Pre-trained model**
 
