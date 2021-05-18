@@ -51,6 +51,13 @@ Update PYTHONPATH variable:
 or
 ```export PYTHONPATH=$PYTHONPATH:pwd:pwd/slim```
 
+Install object detection. From within TensorFlow/models/research/
+
+```
+cp object_detection/packages/tf2/setup.py .
+python -m pip install .
+```
+
 Test the installation of object detection API by runnning the command below from "models/research" folder
 
 ```python object_detection/builders/model_builder_tf1_test.py```
