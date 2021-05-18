@@ -24,6 +24,7 @@ pip install jupyter
 pip install matplotlib 
 pip install tf_slim 
 pip install pycocotools
+pip install scipy
 ```
 
 Install Protobuf:
@@ -33,15 +34,24 @@ Clone the object detection models repository
 
 ```git clone https://github.com/tensorflow/models.git```
 
-Compile Protobuf
+Compile Protobuf from "models/research" folder
 
 ```protoc object_detection/protos/*.proto --python_out=.```
+
+In the \models\research\slim directory run
+
+```
+python setup.py build
+python setup.py install
+```
 
 Update PYTHONPATH variable:
 
 ```export PYTHONPATH=$PYTHONPATH:"/research":"/research/slim"```
+or
+```export PYTHONPATH=$PYTHONPATH:pwd:pwd/slim```
 
-Test the installation of object detection API by runnning the command below from models/research folder
+Test the installation of object detection API by runnning the command below from "models/research" folder
 
 ```python object_detection/builders/model_builder_tf1_test.py```
 
