@@ -54,7 +54,7 @@ or
 Install object detection. From within TensorFlow/models/research/
 
 ```
-cp object_detection/packages/tf2/setup.py .
+cp object_detection/packages/tf1/setup.py .
 python -m pip install .
 ```
 
