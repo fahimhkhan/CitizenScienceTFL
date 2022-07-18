@@ -16,6 +16,7 @@ Install Tensorflow 1.15 using this command:
 Install these dependencies:
 
 ```
+pip install numpy==1.19
 pip install Cython 
 pip install contextlib2
 pip install pillow 
