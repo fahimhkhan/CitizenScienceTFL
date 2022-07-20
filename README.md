@@ -96,6 +96,21 @@ For example, if you are using the 5000th checkpoint, run the follwing command fr
 
 ```python export_tflite_ssd_graph.py --pipeline_config_path=<path to pipeline.config file> --trained_checkpoint_prefix="../trained_model/model.ckpt-5000" --output_directory="../trained_model/tflite" --add_postprocessing_op=true```
 
+run the follwing command from "trained_model" directory
+
+```tflite_convert \
+--graph_def_file=tflite/tflite_graph.pb \
+--output_file=tflite/model.tflite \
+--output_format=TFLITE \
+--input_shapes=1,300,300,3 \
+--input_array=normalized_input_image_tensor \
+--output_arrays='TFLite_Detection_PostProcess','TFLite_Detection_PostProcess:1','TFLite_Detection_PostProcess:2','TFLite_Detection_PostProcess:3' \
+--inference_type=QUANTIZED_UINT8 \
+--mean_values=128 \
+--std_dev_values=127 \
+--change_concat_input_ranges=false \
+--allow_custom_ops```
+
 **7. Building and running the Android/iOS app with the .tflite.**
 
 Include the .tflite file to your Android/iOS app development project in Android Studio or Xcode, then build and run the app.
