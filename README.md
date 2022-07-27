@@ -98,7 +98,8 @@ For example, if you are using the 5000th checkpoint, run the follwing command fr
 
 run the follwing command from "trained_model" directory
 
-```tflite_convert \
+```
+tflite_convert \
 --graph_def_file=tflite/tflite_graph.pb \
 --output_file=tflite/model.tflite \
 --output_format=TFLITE \
