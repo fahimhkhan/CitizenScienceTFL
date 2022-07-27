@@ -109,7 +109,9 @@ run the follwing command from "trained_model" directory
 --mean_values=128 \
 --std_dev_values=127 \
 --change_concat_input_ranges=false \
---allow_custom_ops```
+--allow_custom_ops
+```
+
 
 **7. Building and running the Android/iOS app with the .tflite.**
 
