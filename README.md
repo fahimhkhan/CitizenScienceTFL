@@ -1,11 +1,17 @@
 # CitizenScienceTFL
 
-The steps Needed to train and use a Tensorflow Lite rip current detection model are as below.
+This repository is intended for "step 2" to create an object detection app using the citizen science platform from https://sites.google.com/ucsc.edu/csmlappstudio/detection. 
+
+The steps needed to train and use a Tensorflow Lite rip current detection model are below. The repository has the directory structure needed for the training, which can be cloned/downloaded to be used as the starting point.
 
 **1. Dataset creation and annotation**
 
-Link to the annotated dataset for rip current detection is given in this repo. There is two folders, "train" and "test", respectively.
-Datasets are labeled using a tool called labelImg https://github.com/tzutalin/labelImg
+**Note:** If you are here from https://sites.google.com/ucsc.edu/csmlappstudio/detection, you may already finished your "Dataset creation and annotation". 
+Datasets are labeled using a tool called labelImg https://github.com/tzutalin/labelImg. Detailed instruction for can be found here: https://sites.google.com/ucsc.edu/csmlappstudio/label
+
+This repository has no dataset included in it. you need to put your labeled dataset (from step 1) in the "train" and "test" directory under the "dataset" directory. You also need to update the label_map.pbtxt file in the dataset "directory" with the id and name of your classes.
+
+**Note:** If you are trying to train the rip current detection model from this paper (https://doi.org/10.1145/3462204.3481743), link to the annotated dataset for rip current detection is given in this "train" and "test" in a text file named download link.
 
 **2. Setting up Tensorflow and Dependencies**
 
@@ -28,7 +34,7 @@ pip install pycocotools
 pip install scipy
 ```
 
-Install Protobuf:
+Install Protobuf appropriate for your operationg system:
 https://grpc.io/docs/protoc-installation/
 
 Clone the object detection models repository
@@ -65,7 +71,14 @@ Test the installation of object detection API by runnning the command below from
 
 **3. Generating TFRecord**
 
-First, run "the xml_to_csv_test.py" and "xml_to_csv_train.py" files in the dataset directory to generate "test.csv" and "train.csv" respectively. Then, generate the TFRecord files by running the following python script inside the dataset directory,
+First, run the following commands in the dataset directory to generate "test.csv" and "train.csv" respectively. 
+
+```python xml_to_csv_test.py```
+
+```python xml_to_csv_train.py```
+
+
+Then, generate the TFRecord files by running the following python script inside the dataset directory,
 
 ```python generate_tfrecord.py --csv_input=train.csv  --output_path=train.record --image_dir=train/images```
 
@@ -75,9 +88,17 @@ First, run "the xml_to_csv_test.py" and "xml_to_csv_train.py" files in the datas
 
 We used a pretrained model as our initial checkpoint ssd mobilenet v2. It can be downloaded from http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 
-Extract the .tar.gz file to the folder named "pretrained_model".
+Extract the .tar.gz file to the folder named "pretrained_model". (It should be pretrained_model/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03)
 
-Copy and replace with the given "pipeline.config" in "pretrained_model" to the extracted folder. Inside the extracted folder, update the paths of the pretrained model in line 157 and update the path of the dataset in line 162, 164, 174, 178 in the "pipeline.config" file.
+Update the "pipeline.config" in inside the extracted folder as follows,
+
+*update the number of classes in line 3
+*update the paths of the pretrained model in line 157
+*update the path of the dataset in line 162, 164, 174, 178
+
+![alt text](pipeline_config.png?raw=true)
+
+(Tip: you can use an editor such as Atom, VS Code, etc to see the line numbers.)
 
 **5. Training the model**
 
@@ -85,7 +106,7 @@ Train the model using the pretrained model as our initial checkpoint. Use the tr
 
 ```python train.py --logtostderr --train_dir=<path to "trained_model"> --pipeline_config_path=<path to pipeline.config file>```
 
-Run the training until converge and then run the checkpoint for the next step.
+Run the training until converge and then run the checkpoint for the next step. It is considered by many literature that the model converged when the loss is below 2.
 
 **6. Converting the model to .tflite**
 
@@ -113,7 +134,14 @@ tflite_convert \
 --allow_custom_ops
 ```
 
+This command will create a file named "model.tflite" in a directory named "tflite". Here, create a text file with your class names in seperate lines and name it "labelmap.txt". Now, run the following command to include the labelmap as metadata with your .tflite file,
+
+```python metadata_writer.py```
+
+It'll create a file named "detect.tflite"
 
 **7. Building and running the Android/iOS app with the .tflite.**
 
-Include the .tflite file to your Android/iOS app development project in Android Studio or Xcode, then build and run the app.
+Add an additional line "???" to your "labelmap.txt". Now, use your "detect.tflite" and "labelmap.txt" with your Android/iOS app development project in Android Studio or Xcode to build and run the app following the instructions from "Step 3" here, 
+
+https://sites.google.com/ucsc.edu/csmlappstudio/detection
