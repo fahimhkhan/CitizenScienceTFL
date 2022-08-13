@@ -172,7 +172,15 @@ tflite_convert \
 --allow_custom_ops
 ```
 
-This command will create a file named "model.tflite" in a directory named "tflite". Here, create a text file with your class names in seperate lines and name it "labelmap.txt". Now, run the following command to include the labelmap as metadata with your .tflite file,
+This command will create a file named "model.tflite" in a directory named "tflite". Here, create a text file with your class names in seperate lines and name it "labelmap.txt". For example, if you have three classes named apple, orange, and banana, then the "labelmap.txt" file should look like,
+
+```
+apple
+orange
+banana
+```
+
+Now, run the following command to include the labelmap as metadata with your .tflite file,
 
 ```python metadata_writer.py```
 
