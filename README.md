@@ -9,7 +9,29 @@ The steps needed to train and use a Tensorflow Lite rip current detection model 
 **Note:** If you are here from https://sites.google.com/ucsc.edu/csmlappstudio/detection, you may already finished your "Dataset creation and annotation". 
 Datasets are labeled using a tool called labelImg https://github.com/tzutalin/labelImg. Detailed instruction for can be found here: https://sites.google.com/ucsc.edu/csmlappstudio/label
 
-This repository has no dataset included in it. you need to put your labeled dataset (from step 1) in the "train" and "test" directory under the "dataset" directory. You also need to update the label_map.pbtxt file in the dataset "directory" with the id and name of your classes.
+This repository has no dataset included in it. you need to put your labeled dataset (from step 1) in the "train" and "test" directory under the "dataset" directory. You also need to update (using a text editor) the "label_map.pbtxt" file in the dataset "directory" with the id and name of your classes.
+
+For example, if you have three classes named apple, orange, and banana, then the "label_map.pbtxt" file should look like,
+
+```
+item {
+
+   id: 1 
+   name: 'apple'
+}
+
+item {
+
+   id: 2 
+   name: 'orange'
+}
+
+item {
+
+   id: 3 
+   name: 'banana'
+}
+```
 
 **Note:** If you are trying to train the rip current detection model from this paper (https://doi.org/10.1145/3462204.3481743), link to the annotated dataset for rip current detection is given in this "train" and "test" in a text file named download link.
 
@@ -77,6 +99,20 @@ First, run the following commands in the dataset directory to generate "test.csv
 
 ```python xml_to_csv_train.py```
 
+
+Update the generate_tfrecord.py file at line 3 with your class names. For example, if you have three classes named apple, orange, and banana, then it should look like,
+
+```
+def class_text_to_int(row_label):
+    if row_label == 'apple':
+        return 1
+    if row_label == 'orange':
+        return 2
+    if row_label == 'banana':
+        return 3
+    else:
+        None
+```
 
 Then, generate the TFRecord files by running the following python script inside the dataset directory,
 
