@@ -188,6 +188,15 @@ It'll create a file named "detect.tflite"
 
 **7. Building and running the Android/iOS app with the .tflite.**
 
-Add an additional line "???" to your "labelmap.txt". Now, use your "detect.tflite" and "labelmap.txt" with your Android/iOS app development project in Android Studio or Xcode to build and run the app following the instructions from "Step 3" here, 
+Add an additional line "???" to your "labelmap.txt". For example,
+
+```
+???
+apple
+orange
+banana
+```
+
+Now, use your "detect.tflite" and "labelmap.txt" with your Android/iOS app development project in Android Studio or Xcode to build and run the app following the instructions from "Step 3" here, 
 
 https://sites.google.com/ucsc.edu/csmlappstudio/detection
