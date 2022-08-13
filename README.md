@@ -92,9 +92,9 @@ Extract the .tar.gz file to the folder named "pretrained_model". (It should be p
 
 Update the "pipeline.config" in inside the extracted folder as follows,
 
-*update the number of classes in line 3
-*update the paths of the pretrained model in line 157
-*update the path of the dataset in line 162, 164, 174, 178
+-update the number of classes in line 3
+-update the paths of the pretrained model in line 157
+-update the path of the dataset in line 162, 164, 174, 178
 
 ![alt text](pipeline_config.png?raw=true)
 
