@@ -14,25 +14,7 @@ This repository has no dataset included in it. you need to put your labeled data
 
 For example, if you have three classes named apple, orange, and banana, then the "label_map.pbtxt" file should look like,
 
-```
-item {
-
-   id: 1 
-   name: 'apple'
-}
-
-item {
-
-   id: 2 
-   name: 'orange'
-}
-
-item {
-
-   id: 3 
-   name: 'banana'
-}
-```
+[label_map.pbtxt](https://github.com/fahimhkhan/CitizenScienceTFL/blob/main/dataset/label_map.pbtxt)
 
 **2. Setting up Tensorflow and Dependencies**
 
