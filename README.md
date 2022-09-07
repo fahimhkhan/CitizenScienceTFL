@@ -18,13 +18,10 @@ For example, if you have three classes named apple, orange, and banana, then the
 
 **2. Setting up Tensorflow and Dependencies**
 
-Install Tensorflow 1.15 using this command:
-
-```pip install tensorflow==1.15```
-
 Install these dependencies:
 
 ```
+pip install tensorflow==1.15
 pip install numpy==1.19
 pip install Cython 
 pip install contextlib2
