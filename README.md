@@ -34,10 +34,20 @@ conda activate tf1
 
 **2. Setting up Tensorflow and Dependencies**
 
-Install these dependencies:
-
+Install tensorflow 1.15
 ```
 pip install tensorflow==1.15
+```
+
+(Optional) If you have GPU, you can install Cuda, CudNN and tensorflow-gpu to run the training much faster
+```
+conda install cudatoolkit=10.0
+conda install cudnn=7.3.1
+pip install tensorflow-gpu==1.15
+```
+
+Install these dependencies:
+```
 pip install numpy==1.19
 pip install Cython 
 pip install contextlib2
