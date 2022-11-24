@@ -16,6 +16,22 @@ For example, if you have three classes named apple, orange, and banana, then the
 
 [label_map.pbtxt](https://github.com/fahimhkhan/CitizenScienceTFL/blob/main/dataset/label_map.pbtxt)
 
+**(Optional) Recommended preinstallation setup**
+
+Install miniconda
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+Create a new virtual environment for tensorflow 1
+
+```
+conda create -n tf1 python=3.7
+conda activate tf1
+```
+
 **2. Setting up Tensorflow and Dependencies**
 
 Install these dependencies:
